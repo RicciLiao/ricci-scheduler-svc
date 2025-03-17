@@ -1,0 +1,57 @@
+spring:
+  main:
+    allow-circular-references: true
+  application:
+    version: @project.version@
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    show-sql: true
+  sql:
+    init:
+      platform: mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.165.34:3306/job
+    username: job
+    password: asl123456
+    hikari:
+      max-lifetime: 30000
+      maximum-pool-size: 20
+      minimum-idle: 2
+      idle-timeout: 10000
+      connection-timeout: 15000
+      register-mbeans: true
+      connection-test-query: select 1 from dual
+      leak-detection-threshold: 30000
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: never
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: ricci-scheduler
+            instanceId: AUTO
+            makeSchedulerThreadDaemon: true
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            isClustered: false
+            clusterCheckinInterval: 5000
+            misfireThreshold: 5000
+            dataSource: quartzDataSource
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+          dataSource:
+            quartzDataSource:
+              driver: com.mysql.cj.jdbc.Driver
+              URL: jdbc:mysql://192.168.165.34:3306/job
+              user: job
+              password: asl123456
+              provider: hikaricp
+time-zone: GMT+8
