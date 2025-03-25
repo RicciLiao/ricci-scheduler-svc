@@ -12,7 +12,7 @@
     <version>1.0.0</version>
     <packaging>war</packaging>
     <name>ricci-scheduler-svc</name>
-    <description>Schedule Job Interface service</description>
+    <description>Schedule Job Interface Service</description>
 
     <properties>
         <java.version>20</java.version>
@@ -46,14 +46,6 @@
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ricciliao</groupId>
-            <artifactId>common-components</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ricciliao</groupId>
-            <artifactId>dynamic-aop</artifactId>
         </dependency>
         <dependency>
             <groupId>org.reflections</groupId>
