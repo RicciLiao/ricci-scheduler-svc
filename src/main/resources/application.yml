@@ -13,7 +13,7 @@ spring:
       platform: mysql
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.165.34:3306/job
+    url: jdbc:mysql://192.168.165.31:3306/job
     username: job
     password: asl123456
     hikari:
@@ -50,7 +50,7 @@ spring:
           dataSource:
             quartzDataSource:
               driver: com.mysql.cj.jdbc.Driver
-              URL: jdbc:mysql://192.168.165.34:3306/job
+              URL: jdbc:mysql://192.168.165.31:3306/job
               user: job
               password: asl123456
               provider: hikaricp
